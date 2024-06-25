@@ -29,7 +29,7 @@
           // user.
           function unityShowBanner(msg, type) {
               function updateBannerVisibility() {
-                  warningBanner.style.display = warningBanner.children.length ? 'none' : 'block';
+                  warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
               }
               var div = document.createElement('div');
               div.innerHTML = msg;
@@ -42,7 +42,7 @@
                       updateBannerVisibility();
                   }, 5000);
               }
-              updateBannerVisibility();
+              //updateBannerVisibility();
           }
 
           var buildUrl = "Build";
