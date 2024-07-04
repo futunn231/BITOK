@@ -15,7 +15,7 @@
               <div id="unity-progress-bar-empty">
                   <div id="unity-progress-bar-full"></div>
               </div>
-          </div>
+          </div> 
       </div>
       <script>
 
@@ -100,7 +100,7 @@
               createUnityInstance(canvas, config, (progress) => {
                   progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                  loadingBar.style.display = "none";
+                  loadingBar.style.display = "none"; 
               }).catch((message) => {
                   alert(message);
               });
@@ -108,21 +108,6 @@
 
           document.body.appendChild(script);
 
-      </script>
-      <script>
-          function share(url) {
-              if (navigator.share) {
-                  navigator.share({
-                      url: url,
-                  }).then(() => {
-                      console.log('Successfully shared');
-                  }).catch(error => {
-                      console.error('Error sharing:', error);
-                  });
-              } else {
-                  console.log('Web Share API not supported');
-              }
-          }
       </script>
   </body>
 </html>
