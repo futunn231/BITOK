@@ -9,7 +9,7 @@
   </head>
   <body>
       <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
-          <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%;"></canvas> 
+          <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%;"></canvas>
           <div id="unity-loading-bar">
               <div id="unity-logo"></div>
               <div id="unity-progress-bar-empty">
@@ -93,6 +93,7 @@
 
           } else {
               // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
               canvas.style.width = "100%";
               canvas.style.height = "100%";
           }
@@ -105,7 +106,7 @@
               createUnityInstance(canvas, config, (progress) => {
                   progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                  loadingBar.style.display = "none"; 
+                  loadingBar.style.display = "none";
               }).catch((message) => {
                   alert(message);
               });
@@ -113,6 +114,31 @@
 
           document.body.appendChild(script);
 
+      </script>
+      <script>
+
+          function ShareReferralLink(referralLink) {
+              if (navigator.share) {
+                  navigator.share({
+                      title: "Join me on this awesome app!",
+                      text: "Join me on this awesome app!",
+                      url: referralLink
+                  }).then(() => {
+                      console.log('Successful share');
+                  }).catch((error) => {
+                      console.log('Error sharing', error);
+                  });
+              } else {
+                  console.log('Web Share API is not supported in your browser.');
+              }
+          }
+          function receiveMessage(event) {
+              var data = event.data;
+              if (data && data.method === "shareReferralLink" && data.referralLink) {
+                  shareReferralLink(data.referralLink);
+              }
+          }
+          window.addEventListener("message", receiveMessage, false);
       </script>
   </body>
 </html>
