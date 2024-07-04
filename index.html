@@ -26,7 +26,11 @@
           var fullscreenButton = document.querySelector("#unity-fullscreen-button");
           var warningBanner = document.querySelector("#unity-warning");
           function openShareDialog(title, text, url) {
-              window.location.href = url;
+              // Замените ссылку ниже на вашу реферальную ссылку
+              var referralUrl = "REFERALKA";
+
+              // Открываем ссылку в новой вкладке браузера
+              window.open(referralUrl, "_blank");
           }
           // Shows a temporary message banner/ribbon for a few seconds, or
           // a permanent error message on top of the canvas if type=='error'.
