@@ -25,17 +25,17 @@
           var progressBarFull = document.querySelector("#unity-progress-bar-full");
           var fullscreenButton = document.querySelector("#unity-fullscreen-button");
           var warningBanner = document.querySelector("#unity-warning");
+
           function openSharePanel(url) {
-              navigator.share({ url: url })
-                  .then(() => console.log('Successfully shared'))
-                  .catch((error) => console.error('Error sharing:', error));
+              if (navigator.share) {
+                  navigator.share({ url: url })
+                      .then(() => console.log('Successfully shared'))
+                      .catch((error) => console.error('Error sharing:', error));
+              } else {
+                  console.error('navigator.share is not supported');
+              }
           }
-          // Shows a temporary message banner/ribbon for a few seconds, or
-          // a permanent error message on top of the canvas if type=='error'.
-          // If type=='warning', a yellow highlight color is used.
-          // Modify or remove this function to customize the visually presented
-          // way that non-critical warnings and error messages are presented to the
-          // user.
+
           function unityShowBanner(msg, type) {
               function updateBannerVisibility() {
                   warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
