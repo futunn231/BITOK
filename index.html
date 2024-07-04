@@ -17,25 +17,7 @@
               </div>
           </div> 
       </div>
-      <script>
-          function shareContent(shareText) {
-              if (navigator.share) {
-                  try {
-                      navigator.share({
-                          title: 'Check out this link!',
-                          text: shareText,
-                          url: window.location.href,
-                      }).then(() => {
-                          console.log('Successfully shared');
-                      }).catch((error) => {
-                          console.error('Error sharing:', error);
-                      });
-                  } catch (error) {
-                      console.error('Error sharing:', error);
-                  }
-              } else {
-                  alert('Web Share API is not supported in your browser.');
-              }
+      <script> 
           var container = document.querySelector("#unity-container");
           var canvas = document.querySelector("#unity-canvas");
           var loadingBar = document.querySelector("#unity-loading-bar");
