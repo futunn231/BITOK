@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-
       <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
           <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%;"></canvas>
           <div id="unity-loading-bar">
@@ -16,13 +15,7 @@
               <div id="unity-progress-bar-empty">
                   <div id="unity-progress-bar-full"></div>
               </div>
-          </div>
-          <div id="unity-warning"> </div>
-          <div id="unity-footer">
-              <div id="unity-webgl-logo"></div>
-              <div id="unity-fullscreen-button"></div>
-              <div id="unity-build-title">BITCAH</div>
-          </div>
+          </div> 
       </div>
       <script>
 
@@ -32,7 +25,23 @@
           var progressBarFull = document.querySelector("#unity-progress-bar-full");
           var fullscreenButton = document.querySelector("#unity-fullscreen-button");
           var warningBanner = document.querySelector("#unity-warning");
-
+          function openShareDialog(title, text, url) {
+              if (navigator.share) {
+                  navigator.share({
+                      title: title,
+                      text: text,
+                      url: url
+                  }).then(() => {
+                      console.log('Share successful');
+                  }).catch((error) => {
+                      console.error('Share failed:', error);
+                  });
+              } else {
+                  console.log('Web Share API not supported');
+                  // Fallback if Web Share API is not supported
+                  alert('Share feature is not supported on this browser.');
+              }
+          }
           // Shows a temporary message banner/ribbon for a few seconds, or
           // a permanent error message on top of the canvas if type=='error'.
           // If type=='warning', a yellow highlight color is used.
@@ -94,6 +103,7 @@
 
           } else {
               // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
 
               canvas.style.width = "100%";
               canvas.style.height = "100%";
