@@ -18,31 +18,16 @@
         </div>
     </div>
 
-    <!-- Добавляем JavaScript-функцию для шаринга -->
     <script>
-        function shareContent(content) { 
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Check this out!',
-                    text: content,
-                    url: window.location.href
-                }).then(() => {
-                    console.log('Successfully shared');
-                }).catch((error) => {
-                    console.error('Error sharing', error);
-                });
-            } else {
-                alert('Share API is not supported in this browser. Please copy the link and share manually.');
-                prompt("Copy this link to share:", window.location.href);
-            }
-        }
-        if (navigator.share) {
-            console.log('Web Share API is supported');
-        } else {
-            console.log('Web Share API is not supported');
+        function shareContent(content) {
+            // Создаем элемент <a> с URL для шаринга
+            var shareUrl = 'https://telegram.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(content);
+            var a = document.createElement('a');
+            a.href = shareUrl;
+            a.target = '_blank';
+            a.click();
         }
     </script>
-    <!-- Конец добавления JavaScript-функции для шаринга -->
 
     <script>
         var container = document.querySelector("#unity-container");
