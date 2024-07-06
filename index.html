@@ -118,17 +118,21 @@
               a.click();
           }
           function openKeyboard() {
+              // Создаем временный input элемент
               var input = document.createElement('input');
-              input.setAttribute('type', 'text');
-              input.setAttribute('id', 'tempInput');
+              input.type = 'text';
               input.style.position = 'absolute';
-              input.style.top = '-1000px';
+              input.style.top = '-1000px'; // Скрыть элемент вне видимой области
               input.style.left = '-1000px';
               document.body.appendChild(input);
+
+              // Фокусируем на нем
               input.focus();
-              input.setSelectionRange(0, 0);
-              input.blur(); // Убираем фокус сразу после фокусировки
-              document.body.removeChild(input); // Удаляем временный элемент
+
+              // Удаляем элемент после фокусировки, чтобы не оставался видимым
+              input.addEventListener('blur', function () {
+                  document.body.removeChild(input);
+              });
           }
       </script>
   </body>
