@@ -121,19 +121,14 @@
             a.target = '_blank';
             a.click();
         }
-        function openKeyboard() {
-            // Создаем временный input элемент
+        function openKeyboard() { 
             var input = document.createElement('input');
             input.type = 'text';
             input.style.position = 'absolute';
-            input.style.top = '-1000px'; // Скрыть элемент вне видимой области
+            input.style.top = '-1000px';
             input.style.left = '-1000px';
-            document.getElementById('myInput').focus();
-
-            // Фокусируем на нем
-            input.focus();
-
-            // Удаляем элемент после фокусировки, чтобы не оставался видимым
+            document.body.appendChild(input); 
+            input.focus(); 
             input.addEventListener('blur', function () {
                 document.body.removeChild(input);
             });
