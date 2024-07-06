@@ -109,10 +109,8 @@
           document.body.appendChild(script);
 
       </script>
-
       <script>
           function shareContent(content) {
-              // Создаем элемент <a> с URL для шаринга
               var shareUrl = 'https://telegram.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(content);
               var a = document.createElement('a');
               a.href = shareUrl;
@@ -120,17 +118,11 @@
               a.click();
           }
           function openKeyboard() {
-              var input = document.createElement('input');
-              input.setAttribute('type', 'text');
-              input.setAttribute('id', 'tempInput');
-              input.style.position = 'absolute';
-              input.style.top = '-1000px';
-              input.style.left = '-1000px';
-              document.body.appendChild(input);
+              var input = document.getElementById('hiddenInput');
               input.focus();
-              input.setSelectionRange(0, 0);
-              input.blur(); // Убираем фокус сразу после фокусировки
-              document.body.removeChild(input); // Удаляем временный элемент
+              setTimeout(function () {
+                  input.blur();
+              }, 50);
           }
       </script>
   </body>
