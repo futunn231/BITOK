@@ -22,6 +22,11 @@
     <script>
         function shareContent(content) {
             if (navigator.share) {
+                console.log('Web Share API is supported');
+            } else {
+                console.log('Web Share API is not supported');
+            }
+            if (navigator.share) {
                 navigator.share({
                     title: 'Check this out!',
                     text: content,
@@ -32,7 +37,8 @@
                     console.error('Error sharing', error);
                 });
             } else {
-                alert('Share API is not supported in this browser.');
+                alert('Share API is not supported in this browser. Please copy the link and share manually.');
+                prompt("Copy this link to share:", window.location.href);
             }
         }
     </script>
