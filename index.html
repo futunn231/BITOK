@@ -98,11 +98,15 @@
             a.target = '_blank';
             a.click();
         } function openKeyboard() {
-            var hiddenInput = document.getElementById('hiddenInput');
-            hiddenInput.focus();
-            setTimeout(function () {
-                hiddenInput.blur();
-            }, 100);
+            if (inputField) {
+                inputField.focus(); 
+                inputField.click();  
+            }
+        }
+
+        // This function can be called from Unity to open the keyboard
+        function focusTMPInputField() {
+            document.getElementById('hiddenInput').focus();
         }
     </script>
 </body>
