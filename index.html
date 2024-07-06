@@ -122,10 +122,16 @@
             a.click();
         }
         function openKeyboard() { 
-            var input = document.getElementById('hiddenInput');
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.style.position = 'absolute';
+            input.style.top = '0px';  
+            input.style.left = '-1000px'; 
+            document.body.appendChild(input);
             input.focus();
             setTimeout(function () {
                 input.blur();
+                document.body.removeChild(input);
             }, 50);
         }
     </script>
