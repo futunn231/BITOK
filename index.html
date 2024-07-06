@@ -121,18 +121,19 @@
             a.href = shareUrl;
             a.target = '_blank';
             a.click();
-        }
-        function openKeyboard() { 
-            var input = document.createElement('input');
-            input.type = 'text';
-            input.style.position = 'absolute';
-            input.style.top = '-1000px';
-            input.style.left = '-1000px';
-            document.body.appendChild(input);
-            input.focus();
-            setTimeout(() => {
-                input.blur();
-                document.body.removeChild(input);
+        } function openKeyboard() {
+            var tempInput = document.createElement('input');
+            tempInput.type = 'text';
+            tempInput.style.position = 'absolute';
+            tempInput.style.opacity = '0';
+            tempInput.style.top = '0';
+            tempInput.style.left = '0';
+            tempInput.style.height = '0';
+            tempInput.style.width = '0';
+            document.body.appendChild(tempInput);
+            tempInput.focus();
+            setTimeout(function () {
+                document.body.removeChild(tempInput);
             }, 100);
         }
     </script>
