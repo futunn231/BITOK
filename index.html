@@ -97,16 +97,14 @@
             a.href = shareUrl;
             a.target = '_blank';
             a.click();
-        } function openKeyboard() {
-            if (inputField) {
+        }
+        function openKeyboard()
+        {
+            if (inputField)
+            {
                 inputField.focus(); 
                 inputField.click();  
-            }
-        }
-
-        // This function can be called from Unity to open the keyboard
-        function focusTMPInputField() {
-            document.getElementById('hiddenInput').focus();
+            } 
         }
     </script>
 </body>
