@@ -122,18 +122,18 @@
             a.target = '_blank';
             a.click();
         }
-        function openKeyboard() {
+        function openKeyboard() { 
             var input = document.createElement('input');
             input.type = 'text';
             input.style.position = 'absolute';
-            input.style.top = '0px';
+            input.style.top = '-1000px';
             input.style.left = '-1000px';
             document.body.appendChild(input);
             input.focus();
-            setTimeout(function () {
+            setTimeout(() => {
                 input.blur();
                 document.body.removeChild(input);
-            }, 50);
+            }, 100);
         }
     </script>
 </body>
