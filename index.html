@@ -20,12 +20,7 @@
 
     <!-- Добавляем JavaScript-функцию для шаринга -->
     <script>
-        function shareContent(content) {
-            if (navigator.share) {
-                console.log('Web Share API is supported');
-            } else {
-                console.log('Web Share API is not supported');
-            }
+        function shareContent(content) { 
             if (navigator.share) {
                 navigator.share({
                     title: 'Check this out!',
@@ -40,6 +35,11 @@
                 alert('Share API is not supported in this browser. Please copy the link and share manually.');
                 prompt("Copy this link to share:", window.location.href);
             }
+        }
+        if (navigator.share) {
+            console.log('Web Share API is supported');
+        } else {
+            console.log('Web Share API is not supported');
         }
     </script>
     <!-- Конец добавления JavaScript-функции для шаринга -->
