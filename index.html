@@ -21,6 +21,7 @@
             </div>
         </div>
     </div>
+    <input type="text" id="hiddenInput" style="position: absolute; top: -1000px; left: -1000px;"> 
     <script>
 
         var container = document.querySelector("#unity-container");
@@ -121,12 +122,12 @@
             a.target = '_blank';
             a.click();
         }
-        function openKeyboard() { 
+        function openKeyboard() {
             var input = document.createElement('input');
             input.type = 'text';
             input.style.position = 'absolute';
-            input.style.top = '0px';  
-            input.style.left = '-1000px'; 
+            input.style.top = '0px';
+            input.style.left = '-1000px';
             document.body.appendChild(input);
             input.focus();
             setTimeout(function () {
