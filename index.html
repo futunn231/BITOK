@@ -97,11 +97,11 @@
               a.click();
           }
           function Keyboard() {
-              var input = document.getElementById('hiddenInput');
-              input.focus();
-              setTimeout(function () {
-                  input.blur();
-              }, 50);
+              var input = document.createElement("input");
+              input.setAttribute("type", "text");
+              input.setAttribute("id", "keyboardInput");
+              document.body.appendChild(input);  // Убедитесь, что элемент добавлен в body
+              input.focus();  // Попытка фокусировки на элементе
           }
       </script>
   </body>
