@@ -87,7 +87,6 @@
 
           } else {
               // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
               canvas.style.width = "100%";
               canvas.style.height = "100%";
 
@@ -101,7 +100,7 @@
               createUnityInstance(canvas, config, (progress) => {
                   progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                  loadingBar.style.display = "none"; 
+                  loadingBar.style.display = "none";
               }).catch((message) => {
                   alert(message);
               });
@@ -117,16 +116,24 @@
               a.href = shareUrl;
               a.target = '_blank';
               a.click();
-          }
-          function openKeyboard(inputId) {
+          } 
+          function openKeyboard() {
               var input = document.createElement("input");
               input.setAttribute("type", "text");
               input.setAttribute("id", "keyboardInput");
-              input.setAttribute("data-unity-input-id", inputId);
               document.body.appendChild(input);
               input.focus();
-              input.click(); 
-          }
+              input.click();
+
+              input.addEventListener('input', function () {
+                  var jsonData = JSON.stringify({ inputValue: input.value });
+                  window.unityInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
+              });
+
+              input.addEventListener('blur', function () {
+                  input.remove();
+              });
+          } 
       </script>
   </body>
 </html>
