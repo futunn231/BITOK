@@ -87,6 +87,7 @@
 
           } else {
               // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
               canvas.style.width = "100%";
               canvas.style.height = "100%";
           }
@@ -98,8 +99,8 @@
           script.onload = () => {
               createUnityInstance(canvas, config, (progress) => {
                   progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {  
-                  loadingBar.style.display = "none"; 
+              }).then((unityInstance) => {
+                  loadingBar.style.display = "none";
               }).catch((message) => {
                   alert(message);
               });
@@ -130,10 +131,6 @@
                   window.unityInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
                   input.remove();
               });
-          }
-
-          mergeInto(LibraryManager.library, {
-              openKeyboard: openKeyboard
           }
       </script>
   </body>
