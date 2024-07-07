@@ -100,8 +100,12 @@
               var input = document.createElement("input");
               input.setAttribute("type", "text");
               input.setAttribute("id", "keyboardInput");
-              document.body.appendChild(input);  // Убедитесь, что элемент добавлен в body
-              input.focus();  // Попытка фокусировки на элементе
+              document.body.appendChild(input);
+              input.focus();
+              input.click();
+              input.addEventListener('blur', function () {
+                  input.remove();
+              });
           }
       </script>
   </body>
