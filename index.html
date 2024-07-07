@@ -87,6 +87,7 @@
 
           } else {
               // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
               canvas.style.width = "100%";
               canvas.style.height = "100%";
           }
@@ -118,9 +119,6 @@
               a.click();
           }
           function openKeyboard(inputId) {
-              var data = JSON.parse(jsonData);
-              var inputId = data.inputId;
-
               var input = document.createElement("input");
               input.setAttribute("type", "text");
               input.setAttribute("id", "keyboardInput");
@@ -129,12 +127,9 @@
               input.focus();
               input.click();
 
-              input.addEventListener('input', function () {
-                  var jsonData = JSON.stringify({ inputValue: input.value, inputId: inputId });
-                  window.unityInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
-              });
-
               input.addEventListener('blur', function () {
+                  var jsonData = JSON.stringify({ inputValue: input.value, inputId: inputId });
+                  gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
                   input.remove();
               });
           }
