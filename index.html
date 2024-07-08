@@ -29,16 +29,16 @@
             <div id="unity-progress-bar-empty">
                 <div id="unity-progress-bar-full"></div>
             </div>
-        </div> 
+        </div>
     </div>
-    <script> 
+    <script>
+        var gameInstance;
         var container = document.querySelector("#unity-container");
         var canvas = document.querySelector("#unity-canvas");
         var loadingBar = document.querySelector("#unity-loading-bar");
         var progressBarFull = document.querySelector("#unity-progress-bar-full");
         var fullscreenButton = document.querySelector("#unity-fullscreen-button");
         var warningBanner = document.querySelector("#unity-warning");
-        var gameInstance;
         function unityShowBanner(msg, type) {
             function updateBannerVisibility() {
                 warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -69,16 +69,18 @@
             productVersion: "1.0",
             showBanner: unityShowBanner,
         };
-         
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) { 
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            // Mobile device style: fill the whole browser client area with the game canvas:
+
             var meta = document.createElement('meta');
             meta.name = 'viewport';
             meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
             document.getElementsByTagName('head')[0].appendChild(meta);
             container.className = "unity-mobile";
-            canvas.className = "unity-mobile"; 
-
+            canvas.className = "unity-mobile";
         } else {
+
             canvas.style.width = "100%";
             canvas.style.height = "100%";
         }
@@ -100,6 +102,8 @@
 
         document.body.appendChild(script);
 
+    </script>
+    <script>
         function shareContent(content) {
             var shareUrl = 'https://telegram.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(content);
             var a = document.createElement('a');
@@ -118,7 +122,6 @@
             input.style.top = '0';
             input.style.left = '0';
             document.body.appendChild(input);
-            input.focus();
 
             input.addEventListener('blur', function () {
                 input.remove();
@@ -129,9 +132,7 @@
                 gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
             });
 
-            input.addEventListener('focus', function () {
-                gameInstance.SendMessage('UISquadController', 'OpenUnityKeyboard');
-            });
+            input.focus(); 
         }
     </script>
 </body>
