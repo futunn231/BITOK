@@ -107,11 +107,16 @@
             a.target = '_blank';
             a.click();
         }
-
         function openKeyboard() {
             var input = document.createElement("input");
             input.setAttribute("type", "text");
             input.setAttribute("id", "keyboardInput");
+            input.style.position = 'absolute';
+            input.style.opacity = 0;
+            input.style.height = '1px';
+            input.style.width = '1px';
+            input.style.top = '0';
+            input.style.left = '0';
             document.body.appendChild(input);
             input.focus();
 
@@ -119,11 +124,11 @@
                 input.remove();
             });
 
-            input.addEventListener('input', function () {
-                var jsonData = JSON.stringify({ inputValue: input.value });
-                gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
+            input.addEventListener('focus', function () {
+                gameInstance.SendMessage('UISquadController', 'OpenUnityKeyboard');
             });
         }
+
 
     </script>
 </body>
