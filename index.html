@@ -25,7 +25,6 @@
           var progressBarFull = document.querySelector("#unity-progress-bar-full");
           var fullscreenButton = document.querySelector("#unity-fullscreen-button");
           var warningBanner = document.querySelector("#unity-warning");
-
           function unityShowBanner(msg, type) {
               function updateBannerVisibility() {
                   warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -77,8 +76,8 @@
               createUnityInstance(canvas, config, (progress) => {
                   progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                  loadingBar.style.display = "none"; 
-                  gameInstance = unityInstance; 
+                  loadingBar.style.display = "none";
+                  gameInstance = unityInstance;
               }).catch((message) => {
                   alert(message);
               });
@@ -94,7 +93,7 @@
               a.href = shareUrl;
               a.target = '_blank';
               a.click();
-          } 
+          }
           function openKeyboard() {
               var input = document.createElement("input");
               input.setAttribute("type", "text");
@@ -111,7 +110,7 @@
               input.addEventListener('blur', function () {
                   input.remove();
               });
-          }  
+          }
       </script>
   </body>
 </html>
