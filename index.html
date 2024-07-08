@@ -112,14 +112,12 @@
         }
 
         function openKeyboard() {
-            var input = document.createElement("input");
-            input.setAttribute("type", "text");
-            input.setAttribute("id", "keyboardInput");
-            document.body.appendChild(input);
-            input.focus();  
-            input.addEventListener('blur', function () {
-                input.remove();
-            });
+            var inputField = document.getElementById('unityInputField');
+            if (inputField) {
+                inputField.focus();
+            } else {
+                console.error('InputField not found!');
+            }
         }
     </script>
 </body>
