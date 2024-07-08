@@ -112,12 +112,9 @@
         }
 
         function openKeyboard() {
-            var inputField = document.getElementById('unityInputField');
+            var inputField = gameInstance.Module.canvas.querySelector('#unityInputField');
             if (inputField) {
-                inputField.focus();
-            } else {
-                console.error('InputField not found!');
-            }
+                inputField.Focus();
         }
     </script>
 </body>
