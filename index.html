@@ -112,9 +112,28 @@
         }
 
         function openKeyboard() {
-            var inputField = gameInstance.Module.canvas.querySelector('#unityInputField');
-            if (inputField) {
-                inputField.Focus();
+            var input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.setAttribute("id", "keyboardInput");
+            input.style.position = 'absolute';
+            input.style.opacity = 0;
+            input.style.height = '1px'; // Устанавливаем размер маленьким и прозрачным
+            input.style.width = '1px';
+            input.style.top = '0';
+            input.style.left = '0';
+            document.body.appendChild(input);
+            input.focus();
+
+            // Удаляем элемент, когда он теряет фокус, чтобы он не мешал дальнейшему вводу
+            input.addEventListener('blur', function () {
+                input.remove();
+            });
+
+            // Отправляем данные в Unity
+            input.addEventListener('input', function () {
+                var jsonData = JSON.stringify({ inputValue: input.value });
+                gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
+            });
         }
     </script>
 </body>
