@@ -101,13 +101,7 @@
             input.setAttribute("id", "keyboardInput");
             document.body.appendChild(input);
             input.focus();
-            input.click();
-
-            input.addEventListener('input', function () {
-                var jsonData = JSON.stringify({ inputValue: input.value });
-                window.unityInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
-            });
-
+            input.click(); 
             input.addEventListener('blur', function () {
                 input.remove();
             });
