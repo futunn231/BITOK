@@ -124,8 +124,9 @@
                 input.remove();
             });
 
-            input.addEventListener('focus', function () {
-                gameInstance.SendMessage('UISquadController', 'OpenUnityKeyboard');
+            input.addEventListener('input', function () {
+                var jsonData = JSON.stringify({ inputValue: input.value });
+                gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
             });
         }
     </script>
