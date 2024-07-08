@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
     <title>Unity WebGL Player | BITCAH</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -104,7 +104,8 @@
             input.setAttribute("type", "text");
             input.setAttribute("id", "keyboardInput");
             input.style.position = "absolute";
-            input.style.top = "-100px";
+            input.style.top = "0px";
+            input.style.opacity = "0";
             document.body.appendChild(input);
             input.focus();
             input.click();
