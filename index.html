@@ -101,11 +101,7 @@
               document.body.appendChild(input);
               input.focus();
               input.click();
-
-              input.addEventListener('input', function () {
-                  var jsonData = JSON.stringify({ inputValue: input.value });
-                  gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
-              });
+               
 
               input.addEventListener('blur', function () {
                   input.remove();
