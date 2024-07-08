@@ -2,11 +2,16 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Unity WebGL Player | BITCAH</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+        input[type="text"] {
+            position: absolute;
+            top: -100px;
+        }
+    </style>
 </head>
 <body>
     <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
@@ -98,6 +103,8 @@
             var input = document.createElement("input");
             input.setAttribute("type", "text");
             input.setAttribute("id", "keyboardInput");
+            input.style.position = "absolute";
+            input.style.top = "-100px";
             document.body.appendChild(input);
             input.focus();
             input.click();
