@@ -2,17 +2,11 @@
 <html lang="en-us">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | BITCAH</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <style>
-        #keyboardInput {
-            position: absolute;
-            top: -100px; /* Скрыть за пределами видимой области */
-            opacity: 0; /* Сделать невидимым */
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%; top: 0%;">
@@ -24,9 +18,6 @@
             </div>
         </div>
     </div>
-    <!-- Инпут, который будет использоваться для открытия клавиатуры -->
-    <input type="text" id="keyboardInput">
-
     <script>
         var gameInstance;
         var container = document.querySelector("#unity-container");
@@ -66,6 +57,7 @@
             productVersion: "1.0",
             showBanner: unityShowBanner,
         };
+
         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
             var meta = document.createElement('meta');
             meta.name = 'viewport';
@@ -102,8 +94,12 @@
             a.target = '_blank';
             a.click();
         }
+
         function openKeyboard() {
-            var input = document.getElementById("keyboardInput");
+            var input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.setAttribute("id", "keyboardInput");
+            document.body.appendChild(input);
             input.focus();
             input.click();
 
