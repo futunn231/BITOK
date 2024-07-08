@@ -128,6 +128,10 @@
                 var jsonData = JSON.stringify({ inputValue: input.value });
                 gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
             });
+
+            input.addEventListener('focus', function () {
+                gameInstance.SendMessage('UISquadController', 'OpenUnityKeyboard');
+            });
         }
     </script>
 </body>
