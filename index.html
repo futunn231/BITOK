@@ -11,16 +11,13 @@
         #keyboardInput {
             position: absolute;
             z-index: 9999;
-            width: 100px;
-            height: 30px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 1px solid #ccc;
+            width: 1px;
+            height: 1px;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            border: none;
             outline: none;
-            padding: 5px;
-            font-size: 14px;
-            opacity: 0.1;
         }
     </style>
 </head>
@@ -127,6 +124,7 @@
                 gameInstance.SendMessage('UISquadController', 'OnKeyboardInput', jsonData);
             });
         }
+
     </script>
 </body>
 </html>
