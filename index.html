@@ -7,9 +7,10 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
-        input[type="text"] {
+        #keyboardInput {
             position: absolute;
-            top: -100px;
+            top: -100px; /* Скрыть за пределами видимой области */
+            opacity: 0; /* Сделать невидимым */
         }
     </style>
 </head>
@@ -23,6 +24,9 @@
             </div>
         </div>
     </div>
+    <!-- Инпут, который будет использоваться для открытия клавиатуры -->
+    <input type="text" id="keyboardInput">
+
     <script>
         var gameInstance;
         var container = document.querySelector("#unity-container");
@@ -90,8 +94,7 @@
         };
 
         document.body.appendChild(script);
-    </script>
-    <script>
+
         function shareContent(content) {
             var shareUrl = 'https://telegram.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(content);
             var a = document.createElement('a');
@@ -100,13 +103,7 @@
             a.click();
         }
         function openKeyboard() {
-            var input = document.createElement("input");
-            input.setAttribute("type", "text");
-            input.setAttribute("id", "keyboardInput");
-            input.style.position = "absolute";
-            input.style.top = "0px";
-            input.style.opacity = "0";
-            document.body.appendChild(input);
+            var input = document.getElementById("keyboardInput");
             input.focus();
             input.click();
 
