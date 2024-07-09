@@ -24,8 +24,7 @@
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
-       
+      var warningBanner = document.querySelector("#unity-warning"); 
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
@@ -55,8 +54,7 @@
         productName: "BITCAH",
         productVersion: "1.0",
         showBanner: unityShowBanner,
-      };
-       
+      }; 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) { 
         var meta = document.createElement('meta');
         meta.name = 'viewport';
@@ -64,7 +62,6 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile"; 
-
       } else {
           canvas.style.width = "100%";
           canvas.style.height = "100%";
@@ -84,8 +81,7 @@
               });
             };
 
-        document.body.appendChild(script);
-
+      document.body.appendChild(script);
         function shareContent(content) {
             var shareUrl = 'https://telegram.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(content);
             var a = document.createElement('a');
