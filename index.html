@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | BITCAH</title>
+    <title>Unity WebGL Player | BITOK</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -14,8 +14,7 @@
               <div id="unity-logo"></div>
               <div id="unity-progress-bar-empty">
                   <div id="unity-progress-bar-full"></div>
-              </div>
-          </div> 
+              </div> 
       </div>
     <script>
 
@@ -51,15 +50,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/TEST.loader.js";
+      var loaderUrl = buildUrl + "/BITOK.loader.js";
       var config = {
-        dataUrl: buildUrl + "/TEST.data",
-        frameworkUrl: buildUrl + "/TEST.framework.js",
-        codeUrl: buildUrl + "/TEST.wasm",
+        dataUrl: buildUrl + "/BITOK.data.gz",
+        frameworkUrl: buildUrl + "/BITOK.framework.js.gz",
+        codeUrl: buildUrl + "/BITOK.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "BITCAH",
-        productVersion: "1.0",
+        productName: "BITOK",
+        productVersion: "0.1",
         showBanner: unityShowBanner,
       };
 
@@ -87,6 +86,7 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
           canvas.style.width = "100%";
           canvas.style.height = "100%";
       }
@@ -106,13 +106,7 @@
             };
 
       document.body.appendChild(script);
-        function shareContent(content) {
-            var shareUrl = 'https://telegram.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(content);
-            var a = document.createElement('a');
-            a.href = shareUrl;
-            a.target = '_blank';
-            a.click();
-        } 
+
     </script>
   </body>
 </html>
